@@ -1,0 +1,27 @@
+import this
+
+a = 8
+b = 2
+x = 3.5
+y = 1.5
+s = "Hi"
+t = "Python"
+
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+
+print(x + y)
+print(x - y)
+print(x * y)
+print(x / y)
+
+print(s + " " + t)
+
+m = int(input())
+n = float(input())
+k = input()
+
+print(m + n)
+print(k)
