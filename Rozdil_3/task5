@@ -1,0 +1,47 @@
+import tkinter as tk
+from tkinter import ttk, colorchooser
+import json
+import os
+
+# Файл для збереження кольору
+config_file = "config.json"
+
+def save_color():
+    color = color_var.get()
+    with open(config_file, "w") as f:
+        json.dump({"bg_color": color}, f)
+    main_frame.config(bg=color)
+
+def choose_color():
+    color = colorchooser.askcolor()[1]
+    if color:
+        color_var.set(color)
+        save_color()
+
+# Створення головного вікна
+window = tk.Tk()
+window.title("Програма з вкладками")
+window.geometry("500x300")
+
+notebook = ttk.Notebook(window)
+notebook.pack(expand=True, fill="both")
+
+# Вкладки
+main_frame = tk.Frame(notebook)
+settings_frame = tk.Frame(notebook)
+about_frame = tk.Frame(notebook)
+
+notebook.add(main_frame, text="Головна")
+notebook.add(settings_frame, text="Налаштування")
+notebook.add(about_frame, text="Про програму")
+
+# Вкладка "Головна"
+tk.Label(main_frame, text="Введіть дані:").pack(pady=10)
+entry = tk.Entry(main_frame)
+entry.pack(pady=5)
+
+# Вкладка "Налаштування"
+color_var = tk.StringVar(value="#ffffff")
+tk.Button(settings_frame, text="Вибрати колір фону", command=choose_color).pack(pady=20)
+
+# Вклад
