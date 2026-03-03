@@ -1,0 +1,21 @@
+n = int(input())
+
+students = []
+
+for i in range(n):
+    name = input()
+    surname = input()
+    grades = []
+    for j in range(5):
+        grades.append(float(input()))
+    students.append([name, surname, grades])
+
+for s in students:
+    avg = sum(s[2]) / 5
+    print(s[0], s[1], avg)
+
+for d in range(5):
+    total = 0
+    for s in students:
+        total += s[2][d]
+    print(total / n)
