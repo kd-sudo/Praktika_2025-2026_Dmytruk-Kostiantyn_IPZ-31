@@ -1,0 +1,33 @@
+# Процедурний підхід
+import math
+
+def rectangle_area(length, width):
+    return length * width
+
+def circle_area(radius):
+    return math.pi * radius ** 2
+
+print(rectangle_area(5, 3))
+print(circle_area(4))
+
+
+# Об'єктно-орієнтований підхід
+class Rectangle:
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+    def area(self):
+        return self.length * self.width
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+    def area(self):
+        import math
+        return math.pi * self.radius ** 2
+
+r = Rectangle(5, 3)
+c = Circle(4)
+
+print(r.area())
+print(c.area())
