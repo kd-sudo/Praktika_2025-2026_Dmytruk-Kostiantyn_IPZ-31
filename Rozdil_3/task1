@@ -1,0 +1,11 @@
+# Python-програма для відкриття вікна з написом і кнопкою закриття
+import tkinter as tk
+
+window = tk.Tk()                     # створюємо вікно
+window.title("Перша програма")        # задаємо заголовок
+window.geometry("1024x768")          # розмір вікна
+
+tk.Label(window, text="Hello, world!").pack(expand=True)  # напис
+tk.Button(window, text="Закрити", command=window.destroy).pack()  # кнопка закриття
+
+window.mainloop()                     # запускаємо вікно
