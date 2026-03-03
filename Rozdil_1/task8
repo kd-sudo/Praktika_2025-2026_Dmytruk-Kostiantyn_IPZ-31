@@ -1,0 +1,24 @@
+import pandas as pd
+
+students = []
+
+n = int(input())
+
+for _ in range(n):
+    name = input()
+    surname = input()
+    grades = []
+    for _ in range(5):
+        grades.append(float(input()))
+    students.append({"Name": name, "Surname": surname, "Grades": grades})
+
+df = pd.DataFrame(students)
+grades_df = pd.DataFrame(df["Grades"].to_list(), columns=["Grade1","Grade2","Grade3","Grade4","Grade5"])
+df = pd.concat([df[["Name","Surname"]], grades_df], axis=1)
+
+df["Average"] = df[["Grade1","Grade2","Grade3","Grade4","Grade5"]].mean(axis=1)
+print(df)
+
+group_avg = df[["Grade1","Grade2","Grade3","Grade4","Grade5"]].mean()
+print("Середній бал групи по предметах:")
+print(group_avg)
