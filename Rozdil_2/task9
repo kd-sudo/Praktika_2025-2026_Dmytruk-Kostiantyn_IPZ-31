@@ -1,0 +1,41 @@
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+    def __init__(self, name, age):
+        self.__name = name
+        self.__age = age
+
+    @abstractmethod
+    def sound(self):
+        pass
+
+    def get_info(self):
+        return f"{self.__name}, {self.__age} років"
+
+class Lion(Animal):
+    def sound(self):
+        return "Рррр"
+
+class Elephant(Animal):
+    def sound(self):
+        return "Труууу"
+
+class Zookeeper:
+    def __init__(self, name):
+        self.name = name
+
+    def feed(self, animal):
+        print(f"{self.name} годує {animal.get_info()}")
+
+    def hear_sound(self, animal):
+        print(f"{animal.get_info()} видає звук: {animal.sound()}")
+
+lion = Lion("Симба", 5)
+elephant = Elephant("Дамбо", 10)
+
+zookeeper = Zookeeper("Іван")
+
+zookeeper.feed(lion)
+zookeeper.feed(elephant)
+zookeeper.hear_sound(lion)
+zookeeper.hear_sound(elephant)
