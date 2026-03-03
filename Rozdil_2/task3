@@ -1,0 +1,17 @@
+n = int(input())
+
+grades_list = []
+grades_set = set()
+avg_dict = {}
+
+for _ in range(n):
+    name = input()
+    grades = list(map(float, input().split()))
+    grades_list.append(grades)
+    grades_set.update(grades)
+    avg_dict[name] = sum(grades)/len(grades)
+
+overall_avg = [sum(grades)/len(grades) for grades in grades_list]
+
+print("Середній бал кожного студента:", avg_dict)
+print("Унікальні оцінки:", grades_set)
