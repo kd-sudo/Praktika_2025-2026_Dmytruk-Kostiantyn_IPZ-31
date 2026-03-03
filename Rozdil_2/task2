@@ -1,0 +1,15 @@
+class Student:
+    def __init__(self, name, group, average_score):
+        self.name = name
+        self.group = group
+        self.average_score = average_score
+    def show_info(self):
+        print(f"Ім'я: {self.name}, Група: {self.group}, Середній бал: {self.average_score}")
+
+s1 = Student("Іван", "П-01", 4.5)
+s2 = Student("Марія", "П-02", 4.8)
+s3 = Student("Олег", "П-01", 4.2)
+
+s1.show_info()
+s2.show_info()
+s3.show_info()
